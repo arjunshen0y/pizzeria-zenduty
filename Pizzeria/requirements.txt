@@ -1,0 +1,4 @@
+#Django version <4.0 is necessary
+Django==3.2.21 
+
+

@@ -1,0 +1,30 @@
+version: '3'
+services:
+  db:
+    image: postgres:12
+    environment:
+      POSTGRES_DB: mydb
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    command: ["./start.sh"]
+
+  # celery-worker:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.backgroundtasks  # Use a separate Dockerfile for background tasks
+  #   volumes:
+  #     - .:/app
+  #   depends_on:
+  #     - db
+  #   command: ["celery", "worker", "--app=myproject.celery", "--loglevel=info"]
