@@ -2,6 +2,10 @@
 Technical Assignment - Zenduty<br>
 [A Pizzeria Application]
 
+## Note
+
+Due to technical issues like errors, it was not possible to create asynchronous tasks. I tried ***background_tasks*** and ***celery*** and both libraries were unsuccesfull. I have implemented the use-case in a more manual way.
+
 ## Setup
 
 The first thing to do is to clone the repository:
