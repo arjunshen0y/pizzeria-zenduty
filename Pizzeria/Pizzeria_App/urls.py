@@ -1,11 +1,13 @@
 # urls.py
 
 from django.urls import path, include
-from .views import OrderDetailView, AddOrderView
+from .views import AddOrderView, CreatePizzaView, CheckOrderStatusView, UpdateOrderStatusView
 
 urlpatterns = [
-    path('pizzapi/add_order/', AddOrderView.as_view(), name='add_order'),
-    path('pizzapi/orders/<int:order_id>/', OrderDetailView.as_view(), name='order_info'),
+    path('add_pizza/', CreatePizzaView.as_view(), name='create-pizza'),
+    path('add_order/', AddOrderView.as_view(), name='add_order'),
+    
+    path('order_status/<int:order_id>/', UpdateOrderStatusView().as_view(), name='order_status')
 ]
 
 

@@ -29,7 +29,7 @@ class Pizza(models.Model):
     toppings = models.ManyToManyField(Toppings)
     quantity = models.PositiveIntegerField(default=1)
     pizza_price = models.DecimalField(max_digits=10, decimal_places=2)
-    created_at = models.DateTimeField(default=timezone.now)  # Add created_at field
+    created_at = models.DateTimeField(default=timezone.now)  
 
     def __str__(self):
         return f"Pizza ({self.base}, {self.cheese}, {self.toppings.all()})"  # Customize the string representation
@@ -46,11 +46,6 @@ class Order(models.Model):
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Placed')
     pizzas = models.ManyToManyField('Pizza', related_name='orders')
     created_at = models.DateTimeField(auto_now_add=True)
-
-    @background(schedule=timedelta(minutes=1))
-    def schedule_order_status_update(self):
-        from Pizzeria_App.management.commands.update_status_order import Command
-        Command().handle()
 
 class PizzaOrder(models.Model):
     pizzas = models.ManyToManyField(Pizza)

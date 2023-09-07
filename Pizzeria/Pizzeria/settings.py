@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Pizzeria_App',
-    'background_task',
+    # 'background_task',
     'channels',
 ]
 
@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'background_task.middleware.BackgroundTaskMiddleware',
+    #'background_task.middleware.BackgroundTaskMiddleware',
 ]
 
 ROOT_URLCONF = 'Pizzeria.urls'
@@ -136,3 +136,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 BACKGROUND_TASK_RUN_ASYNC = True
 
 BACKGROUND_TASK_RUN_EVERY = timedelta(minutes=1)
+
+# CELERY_BROKER_URL = 'django://'
+# CELERY_RESULT_BACKEND = 'django-db'

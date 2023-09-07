@@ -7,11 +7,12 @@ class ToppingSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class PizzaSerializer(serializers.ModelSerializer):
-    toppings = ToppingSerializer(many=True)
+    toppings = ToppingSerializer(many=True, read_only=True)
     class Meta:
         model = Pizza
         fields = "__all__"
-
+    
+    
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
