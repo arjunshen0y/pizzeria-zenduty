@@ -8,6 +8,10 @@ The first thing to do is to clone the repository:
 
 ```sh
 $ git clone https://github.com/arjunshen0y/pizzeria-zenduty.git
+```
+# Switch Branch to Master and Go to Project Directory
+```sh
+$ git checkout master
 $ cd pizzeria-zenduty/Pizzeria
 ```
 
